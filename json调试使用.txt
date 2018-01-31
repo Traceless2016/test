@@ -1,0 +1,563 @@
+//数据点发送模式
+
+POST /devices/24428048/datapoints HTTP/1.1
+api-key: gFnhtdq6L0rVlKjePmpXUFD1Aj0=
+Host: api.heclouds.com
+Content-Length: 71
+
+{"datastreams":[{"id":"temp_module0","datapoints":[{"value":"40.1"}]}]}
+
+IP：183.230.40.33：80
+
+IP：127.0.0.1：80
+
+
+		
+		
+		
+		
+POST /devices/24428048/datapoints HTTP/1.1
+api-key: gFnhtdq6L0rVlKjePmpXUFD1Aj0=
+Host: api.heclouds.com
+Content-Length: 124
+
+{"datastreams":[{"id":"temp_module0","datapoints":[{"value":"40.1"}]}{"id":"temp_module1","datapoints":[{"value":"50.1"}]}]}
+
+POST /devices/24428048/datapoints HTTP/1.1
+api-key: gFnhtdq6L0rVlKjePmpXUFD1Aj0=
+Host: api.heclouds.com
+Content-Length: 124
+
+{"datastreams":[{"id":"temp_module0","datapoints":[{"value":"40.1"}]}{"id":"temp_module1","datapoints":[{"value":"50.1"}]}]}
+
+
+
+GET /devices/24428048/datapoints HTTP/1.1
+api-key: gFnhtdq6L0rVlKjePmpXUFD1Aj0=
+Host: api.heclouds.com
+Content-Length: 71
+
+{"datastreams":[{"id":"temp_module0","datapoints":[{"value":"40.1"}]}]}
+
+http://api.heclouds.com/devices/24428048/datapoints? datastream_id= temp_module0&start=2015-11-30T17:12:33&end=2015-12-01T17:22:33
+http://api.heclouds.com/devices/24428048/datapoints? datastream_id=temp_module0&start=2018-1-7T13:21:26
+2018-1-7T13:21:26
+
+http://api.heclouds.com/devices/24428048/datapoints?datastream_id=temp_module0&limit=10
+http://api.heclouds.com/devices/24428048/datapoints?datastream_id=temp_module0
+
+{"errno":0,"data":{"count":1,"datastreams":[{"datapoints":[{"at":"2018-01-07 22:32:32.690","value":"43"}],"id":"temp_module0"}]},"error":"succ"}
+api-key
+
+
+
+json1：C#程序
+
+
+public class Account
+{
+    public string Email { get; set; }
+    public bool Active { get; set; }
+    public DateTime CreatedDate { get; set; }
+    public IList<string> Roles { get; set; }
+}
+string json = @"{
+  'Email': 'james@example.com',
+  'Active': true,
+  'CreatedDate': '2013-01-20T00:00:00Z',
+  'Roles': [
+    'User',
+    'Admin'
+  ]
+}";
+
+Account account = JsonConvert.DeserializeObject<Account>(json);
+
+Console.WriteLine(account.Email);
+// james@example.com
+
+http://api.heclouds.com/devices
+
+{
+"title":"my device1",
+"desc":"some description"
+}
+myDictionary.Add(1,"C#");
+
+myDictionary.Add(2,"C++");
+
+myDictionary.Add(3,"ASP.NET");
+
+myDictionary.Add(4,"MVC");
+
+/*************************************/
+JArray array = new JArray();
+array.Add("Manual text");
+array.Add(new DateTime(2000, 5, 23));
+
+JObject o = new JObject();
+o["MyArray"] = array;
+
+string json = o.ToString();
+
+// {
+//   "MyArray": [
+//     "Manual text",
+//     "2000-05-23T00:00:00"
+//   ]
+// }
+/***********************/
+
+public class Account
+{
+    public string Email { get; set; }
+    public bool Active { get; set; }
+    public DateTime CreatedDate { get; set; }
+    public IList<string> Roles { get; set; }
+}
+Account account = new Account
+{
+    Email = "james@example.com",
+    Active = true,
+    CreatedDate = new DateTime(2013, 1, 20, 0, 0, 0, DateTimeKind.Utc),
+    Roles = new List<string>
+    {
+        "User",
+        "Admin"
+    }
+};
+string json = JsonConvert.SerializeObject(account, Formatting.Indented);
+// {
+//   "Email": "james@example.com",
+//   "Active": true,
+//   "CreatedDate": "2013-01-20T00:00:00Z",
+//   "Roles": [
+//     "User",
+//     "Admin"
+//   ]
+// }
+/********This sample serializes a collection to JSON****************************/
+
+List<string> videogames = new List<string>
+{
+    "Starcraft",
+    "Halo",
+    "Legend of Zelda"
+};
+
+string json = JsonConvert.SerializeObject(videogames);
+
+Console.WriteLine(json);
+// ["Starcraft","Halo","Legend of Zelda"]
+
+ 
+
+/********This sample serializes a dictionary to JSON****************************/
+Dictionary<string, int> points = new Dictionary<string, int>
+{
+    { "James", 9001 },
+    { "Jo", 3474 },
+    { "Jess", 11926 }
+};
+
+string json = JsonConvert.SerializeObject(points, Formatting.Indented);
+
+Console.WriteLine(json);
+// {
+//   "James": 9001,
+//   "Jo": 3474,
+//   "Jess": 11926
+// }
+/********This sample serializes an object to JSON without any formatting or indentation whitespace ****************************/
+public class Account1
+{
+    public string Email { get; set; }
+    public bool Active { get; set; }
+    public DateTime CreatedDate { get; set; }
+    public IList<string> Roles { get; set; }
+}
+
+Account1 account1 = new Account1
+{
+    Email = "james@example.com",
+    Active = true,
+    CreatedDate = new DateTime(2013, 1, 20, 0, 0, 0, DateTimeKind.Utc),
+    Roles = new List<string>
+    {
+        "User",
+        "Admin"
+    }
+};
+
+string json = JsonConvert.SerializeObject(account1);
+// {"Email":"james@example.com","Active":true,"CreatedDate":"2013-01-20T00:00:00Z","Roles":["User","Admin"]}
+
+Console.WriteLine(json);
+
+/********This sample serializes an object to JSON without any formatting or indentation whitespace ****************************/
+
+/******************************解析json数据包***************************/
+//{"errno":0,"data":{"device_id":"25109571"},"error":"succ"}           创建设备之后所返回的json数据
+//{"errno":13,"error":"system limit: protocol: TTP but the product protocol is HTTP"}//说明json格式只有三个成员
+
+/******************************GET请求***************************/
+http://<API_ADDRESS>/devices/<device_id>
+http://api.heclouds.com/devices
+http://api.heclouds.com/devices/25114512
+api-key: gFnhtdq6L0rVlKjePmpXUFD1Aj0=
+
+//返回的内容
+{
+    "errno": 0,
+    "data": {
+        "protocol": "HTTP",
+        "create_time": "2018-01-28 19:09:52",
+        "online": false,
+        "id": "25125521",
+        "auth_info": {
+            "SYS": "QQT3UaFccDDWnHrdmPzZ8YeboC0="
+        },
+        "datastreams": [
+            {
+                "unit": "摄氏度",
+                "id": "temp_module0",
+                "unit_symbol": "℃",
+                "create_time": null
+            },
+            {
+                "unit": "摄氏度",
+                "id": "temp_module1",
+                "unit_symbol": "℃",
+                "create_time": null
+            },
+            {
+                "unit": "摄氏度",
+                "id": "temp_module2",
+                "unit_symbol": "℃",
+                "create_time": null
+            },
+            {
+                "unit": "摄氏度",
+                "id": "avr_temp0",
+                "unit_symbol": "℃",
+                "create_time": null
+            },
+            {
+                "unit": "摄氏度",
+                "id": "avr_temp1",
+                "unit_symbol": "℃",
+                "create_time": null
+            },
+            {
+                "unit": "摄氏度",
+                "id": "avr_temp2",
+                "unit_symbol": "℃",
+                "create_time": null
+            },
+            {
+                "unit": "",
+                "id": "switch0",
+                "unit_symbol": "",
+                "create_time": null
+            }
+        ],
+        "title": "newDevice0",
+        "desc": "some description",
+        "tags": [
+            "temperature",
+            "dotpoints"
+        ]
+    },
+    "error": "succ"
+}
+ public class Data
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string protocol { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string create_time { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string online { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string id { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+    
+        public Dictionary<string, string> auth_info { get; set; }//返回数据，比如ID 关键是{}而不是[]
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<DatastreamsItem> datastreams { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string title { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string desc { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<string> tags { get; set; }
+    }
+
+    public class retrunMessageGet
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int errno { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Data data { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string error { get; set; }
+    }
+This sample deserializes JSON using dependency injection.
+
+public class AutofacContractResolver : DefaultContractResolver
+{
+    private readonly IContainer _container;
+
+    public AutofacContractResolver(IContainer container)
+    {
+        _container = container;
+    }
+
+    protected override JsonObjectContract CreateObjectContract(Type objectType)
+    {
+        // use Autofac to create types that have been registered with it
+        if (_container.IsRegistered(objectType))
+        {
+            JsonObjectContract contract = ResolveContact(objectType);
+            contract.DefaultCreator = () => _container.Resolve(objectType);
+
+            return contract;
+        }
+
+        return base.CreateObjectContract(objectType);
+    }
+
+    private JsonObjectContract ResolveContact(Type objectType)
+    {
+        // attempt to create the contact from the resolved type
+        IComponentRegistration registration;
+        if (_container.ComponentRegistry.TryGetRegistration(new TypedService(objectType), out registration))
+        {
+            Type viewType = (registration.Activator as ReflectionActivator)?.LimitType;
+            if (viewType != null)
+            {
+                return base.CreateObjectContract(viewType);
+            }
+        }
+
+        // fall back to using the registered type
+        return base.CreateObjectContract(objectType);
+    }
+}
+
+public class TaskController
+{
+    private readonly ITaskRepository _repository;
+    private readonly ILogger _logger;
+
+    public TaskController(ITaskRepository repository, ILogger logger)
+    {
+        _repository = repository;
+        _logger = logger;
+    }
+
+    public ITaskRepository Repository
+    {
+        get { return _repository; }
+    }
+
+    public ILogger Logger
+    {
+        get { return _logger; }
+    }
+}
+
+
+ContainerBuilder builder = new ContainerBuilder();
+builder.RegisterType<TaskRepository>().As<ITaskRepository>();
+builder.RegisterType<TaskController>();
+builder.Register(c => new LogService(new DateTime(2000, 12, 12))).As<ILogger>();
+
+IContainer container = builder.Build();
+
+AutofacContractResolver contractResolver = new AutofacContractResolver(container);
+
+string json = @"{
+  'Logger': {
+    'Level':'Debug'
+  }
+}";
+
+// ITaskRespository and ILogger constructor parameters are injected by Autofac 
+TaskController controller = JsonConvert.DeserializeObject<TaskController>(json, new JsonSerializerSettings
+{
+    ContractResolver = contractResolver
+});
+
+Console.WriteLine(controller.Repository.GetType().Name);
+// TaskRepository
+上一个有很多地方没有搞明白，比如说接口什么的，我不知道该引用什么
+
+
+
+新增数据流
+http://api.heclouds.com/devices/<device_id>/datastreams
+查看数据流
+http://api.heclouds.com/devices/<device_id>/datastreams/<datastream_id>            这是单个的数据流
+http://api.heclouds.com/devices/<device_id>/datastreams                            这某设备的多个数据流信息
+删除数据流
+http://api.heclouds.com/devices/<device_id>/datastreams/<datastream_id>
+
+新增数据点
+http://api.heclouds.com/devices/<device_id>/datapoints
+
+{
+  "datastreams": [
+    {
+      "id": "temperature",
+      "datapoints": [{
+        "at": "2015-03-22T22:31:12",
+        "value": "22.5"
+      }]
+    },
+    {
+      "id": "tempera",
+      "datapoints": [{
+        "at": "2015-03-22T22:31:12",
+        "value": "22.5"
+      }]
+    },
+    {
+      "id": "tempera",
+      "datapoints": [{
+        "at": "2015-03-22T22:31:12",
+        "value": "22.5"
+      }]
+    }
+  ]
+}
+public class Datapoints
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string at { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string value { get; set; }
+        public Datapoints()
+        {
+            this.at = DateTime.Now.ToString("yyyy-MM-dd")+ "T" + DateTime.Now.ToLongTimeString().ToString(); //”2015-03-22T22:31:12”
+            this.value = "49";
+
+
+        }
+        
+        
+        
+        
+    }
+
+    public class PostDatapoint
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string id { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        //public Datapoints datapoints { get; set; }
+        public List<Datapoints> datapoints = new List<Datapoints>();
+        public PostDatapoint ()
+        {
+            
+            this.id = "Pei";
+            
+        }
+    }
+
+    public class PostDatapoints
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<PostDatapoint> datastreams = new List<PostDatapoint>();
+    }
+				public class DatapointsItem
+			{
+				/// <summary>
+				/// 
+				/// </summary>
+				public string at { get; set; }
+				/// <summary>
+				/// 
+				/// </summary>
+				public string value { get; set; }
+			}
+
+public class DatastreamsItem
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public List <DatapointsItem > datapoints { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string id { get; set; }
+}
+
+public class Data
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int count { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public List <DatastreamsItem > datastreams { get; set; }
+}
+
+public class Root
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int errno { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public Data data { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string error { get; set; }
+}
+	
+	查看数据点(api-key: gFnhtdq6L0rVlKjePmpXUFD1Aj0=)
+http://api.heclouds.com/devices/<device_id>/datapoints
+http://api.heclouds.com/devices/<device_id>/datapoints?datastream_id=temperature
+getDatapoints = JsonConvert.DeserializeObject<GETDatapoints>(returnMessagestring);//retrurnID是要解析的json字符串
+Console.WriteLine(getDatapoints.data.datastreams[0].datapoints[0].value);//注意这里的0要根据自己想要的数据而写的,不然会发生异常，当然自己可以使用程序做一个判断！
